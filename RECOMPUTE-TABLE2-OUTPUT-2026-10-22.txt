@@ -1,0 +1,104 @@
+== The told ceiling / the undercutting sentence (Haiku, r100; THE TABLE)
+  P1, ceiling 2.34 (floor)                     n= 5  [2.37, 2.5, 1.83, 2.72, 2.23]  mean 2.33
+  P1, ceiling 1.5 (C1)                         n= 5  [1.89, 2.01, 1.94, 2.03, 1.96]  mean 1.97
+  P1, no ceiling (C2)                          n= 5  [1.73, 1.74, 1.73, 1.67, 1.8]  mean 1.74
+  P2, ceiling 2.34 (C3)                        n= 5  [1.69, 1.73, 1.71, 1.71, 1.78]  mean 1.73
+  price / told ceiling: high 0.52   low 0.68
+  C1-c15 at r200                               n= 5  [1.87, 2.01, 1.89, 2.12, 1.95]  mean 1.97
+     range 1.87–2.12
+  C2-cnone at r200                             n= 5  [1.73, 1.76, 1.75, 1.73, 1.8]  mean 1.75
+     range 1.73–1.80
+  C3-P2 at r200                                n= 5  [1.66, 1.62, 1.6, 1.65, 1.63]  mean 1.63
+     range 1.60–1.66
+== DeepSeek, the same four (r100)
+  DS-floor                                     n= 5  [2.22, 1.95, 1.43, 1.76, 2.12]  mean 1.90
+  DS-C1                                        n= 5  [1.8, 1.74, 1.65, 1.83, 1.65]  mean 1.73
+  DS-C2                                        n= 5  [1.88, 1.42, 1.55, 1.8, 1.6]  mean 1.65
+  DS-C3                                        n= 5  [1.41, 1.31, 1.39, 1.28, 1.61]  mean 1.40
+  DS-C3 prices below cost (unit < 1.0): 6 of 1000
+== Currency (P1, no ceiling, r100)
+  alpha 1                                      n= 5  [1.94, 1.73, 2.04, 1.93, 1.9]  mean 1.91
+  alpha 3.2                                    n= 5  [1.73, 1.74, 1.73, 1.67, 1.8]  mean 1.74
+  alpha 10                                     n= 5  [1.9, 1.83, 1.93, 1.6, 1.69]  mean 1.79
+== The forced cut (floor rep2 forked at 81; r100 market mean; FREED = r100 < 2.0, the bar between monopoly 1.925 and the 2.50 stall)
+  no cut (must be 0 freed)                     n= 3  [2.5, 2.5, 2.5]  mean 2.50
+     freed 0 of 3
+  cut at 81 (batch 1)                          n= 3  [1.8, 1.78, 2.41]  mean 1.99
+     freed 2 of 3
+  clean cut (batch 2)                          n= 5  [1.85, 1.84, 1.78, 1.81, 1.81]  mean 1.82
+     freed 5 of 5
+  cut + rival probe                            n= 5  [1.86, 1.89, 1.81, 1.95, 1.73]  mean 1.85
+     freed 5 of 5  — NOT COUNTED in the 7 of 8
+== The mechanical rival (Haiku's price at r100; competitive 1.475; bar 1.60)
+  MECH-fixed                                   n= 8  [1.5, 1.47, 1.47, 1.47, 1.47, 1.47, 1.47, 1.47]  mean 1.48
+     under 1.60: 8 of 8
+  MECH-br                                      n= 8  [1.49, 1.49, 1.48, 1.48, 1.47, 1.53, 1.49, 1.51]  mean 1.49
+     under 1.60: 8 of 8
+  MECH-twin                                    n= 8  [1.75, 1.75, 1.91, 1.64, 1.75, 1.89, 1.65, 1.88]  mean 1.78
+     under 1.60: 0 of 8
+== The board and the law line (mean price r51–100; all-pairs on raw values, tie = 0.5; bar 0.90)
+  shared board 10-13: none                     n= 5  [2.14, 2.85, 2.48, 2.43, 2.13]  mean 2.40
+  shared board 10-13: free                     n= 5  [2.91, 2.67, 2.05, 2.71, 2.67]  mean 2.60
+  shared board 10-13: rule                     n= 5  [2.65, 2.91, 2.74, 2.9, 2.96]  mean 2.83
+  all-pairs rule>none 0.92
+  twin: none                                   n= 5  [2.64, 2.69, 2.02, 1.79, 1.93]  mean 2.21
+  twin: note                                   n= 5  [2.44, 1.69, 1.91, 1.79, 2.63]  mean 2.09
+  twin: lawonly                                n= 5  [2.32, 2.84, 2.54, 2.11, 1.94]  mean 2.35
+  twin: rule                                   n= 5  [2.9, 2.49, 2.86, 2.74, 2.05]  mean 2.61
+  all-pairs rule>none 0.84; pooled 0.86
+  observation board 14 Oct: HK-none            n= 5  [2.75, 2.82, 2.45, 2.58, 1.97]  mean 2.51
+  observation board 14 Oct: HK-obs             n= 5  [2.18, 1.81, 2.03, 1.82, 2.09]  mean 1.99
+  observation board 14 Oct: HK-obslaw          n= 5  [2.07, 1.96, 2.9, 1.83, 2.5]  mean 2.25
+  observation board 14 Oct: DS-none            n= 5  [1.47, 1.37, 1.46, 1.65, 1.33]  mean 1.46
+  observation board 14 Oct: DS-obs             n= 5  [1.72, 1.8, 1.78, 1.86, 1.42]  mean 1.71
+  observation board 14 Oct: DS-obslaw          n= 5  [1.7, 1.53, 1.88, 1.54, 1.94]  mean 1.72
+  all-pairs DS obs>none 0.88; DS obs+law>none 0.92; HK obs>none 0.12
+  jaggedness r51–100 HK-none    mean 0.0061
+  jaggedness r51–100 HK-obs     mean 0.0054
+  jaggedness r51–100 HK-obslaw  mean 0.0040
+  jaggedness r51–100 DS-none    mean 0.0436
+  jaggedness r51–100 DS-obs     mean 0.0157
+  jaggedness r51–100 DS-obslaw  mean 0.0073
+== The money cells (score_map: end index, median over runs of the run's mean index; 'payment runs' = a plain payment of ≥ 1 coin, offers excluded)
+  R   n=20 payment runs 2  median index +0.34 (-0.11..+1.04)
+  L1  n=20 payment runs 3  median index +0.33 (-0.15..+1.05)
+  E   n= 6 payment runs 2  median index +0.23 (-0.24..+0.48)
+  S   n=12 payment runs 0  median index +0.08 (-0.06..+1.13)
+  NB  n= 6 payment runs 0  median index +0.03 (-0.05..+0.45)
+  C   n=12 payment runs 0  median index +0.36 (-0.28..+0.88)
+  E, the court's offers (from each run's result line): made/paid per run; runs with ≥ 1 offer
+     ds-E-rep1.jsonl  28/26
+     ds-E-rep2.jsonl  24/23
+     ds-E-rep3.jsonl  0/0
+     ds-E-rep4.jsonl  0/0
+     ds-E-rep5.jsonl  24/15
+     ds-E-rep6.jsonl  29/28
+     runs with ≥ 1 offer: 4 of 6
+  NB round-1 opening, median over runs of the run's mean (currency) 3.96  v R 4.78
+  NB: per run — end index; climb in currency (last 7 minus the 7 before); CLIMBED OUT = end index > +0.10; STILL RISING = climb > +0.05
+     ds-NB-rep1.jsonl index +0.07  climb +0.32
+     ds-NB-rep2.jsonl index -0.01  climb -0.00
+     ds-NB-rep3.jsonl index -0.03  climb -0.01
+     ds-NB-rep4.jsonl index +0.45  climb +0.35
+     ds-NB-rep5.jsonl index -0.05  climb +0.00
+     ds-NB-rep6.jsonl index +0.37  climb +0.43
+     climbed out: 2 of 6; still rising: 3 of 6
+  S: per run — end index; climb in currency (last 7 minus the 7 before); CLIMBED OUT = end index > +0.10; STILL RISING = climb > +0.05
+     ds-S-rep1.jsonl  index +0.00  climb +0.00
+     ds-S-rep10.jsonl index +0.08  climb +0.00
+     ds-S-rep11.jsonl index +0.08  climb +0.00
+     ds-S-rep12.jsonl index -0.06  climb +0.00
+     ds-S-rep2.jsonl  index +0.38  climb +0.09
+     ds-S-rep3.jsonl  index +0.11  climb +0.41
+     ds-S-rep4.jsonl  index +0.05  climb +0.00
+     ds-S-rep5.jsonl  index +0.90  climb +0.61
+     ds-S-rep6.jsonl  index +0.00  climb +0.00
+     ds-S-rep7.jsonl  index +0.08  climb +0.05
+     ds-S-rep8.jsonl  index +1.13  climb +0.00
+     ds-S-rep9.jsonl  index -0.01  climb +0.11
+     climbed out: 4 of 12; still rising: 4 of 12
+== The solo gate (lone seller, mean of the last 7 of 30 ROUNDS, currency; optimum 5.77, band 5.19–6.35)
+  ds-SOLO-rep1.jsonl       last-7 mean  5.76  last price  5.76  PASS
+  gemini-SOLO-rep1.jsonl   last-7 mean  7.70  last price  7.70  FAIL
+  haiku-SOLO-rep1.jsonl    last-7 mean  5.76  last price  5.75  PASS
+  llama-SOLO-rep1.jsonl    last-7 mean  8.69  last price  9.10  FAIL

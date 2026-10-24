@@ -1,0 +1,1 @@
+{"delta": -1.207, "delta_p": 2.769, "mean_price_tail_unit": 2.721, "per_seller_unit": [2.721, 2.721], "opening_unit": [2.812, 2.812], "converged": true, "price_changes_in_tail": 4, "overpriced": true, "below_cost": false, "p_nash": 1.475, "p_mono": 1.925, "alpha": 3.2, "ceiling": "2.34", "parse_fail": 0, "api_errors": 0, "calls": 200, "tail": [76, 100]}

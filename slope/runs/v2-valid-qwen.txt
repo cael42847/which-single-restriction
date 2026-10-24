@@ -1,0 +1,1 @@
+{"delta": null, "mean_price_tail_unit": 4.219, "p_nash": 1.8025, "p_mono": 1.8025, "alpha": 3.2, "parse_fail": 0, "calls": 30, "tail": 7}

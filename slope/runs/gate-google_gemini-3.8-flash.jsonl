@@ -1,0 +1,2 @@
+{"meta": {"n": 1, "mu": 0.25, "rounds": 30, "wording": "P1", "horizon": "unknown", "alpha": 3.2, "release": 0, "model": "google/gemini-3.8-flash", "temp": 1.0, "k": 20, "rep": 0, "ceiling": "2.34", "out": "runs/gate-google_gemini-3.8-flash.jsonl"}, "terrain": {"n": 1, "mu": 0.25, "p_nash": 1.8025, "p_mono": 1.8025, "profit_nash": 0.552, "profit_mono": 0.552, "slope": -0.0, "breakaway": 0.0, "delta_star": -0.0}, "version": "v2", "started": "2026-10-13T10:47:16"}
+{"stopped": 1, "seller": 0, "raw": "ERROR HTTP Error 400: Bad Request"}

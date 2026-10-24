@@ -1,0 +1,137 @@
+<title>Slope Lab Map</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a lab notebook's index — summary on top, the knob × experiment grid as the spine, notes below. */
+:root{
+  --bg:#F4F6F2; --panel:#FFFFFF; --ink:#1D2829; --muted:#5E6B69; --rule:#D5DCD6;
+  --accent:#2E6B70; --base:#E9EEEA; --held:#3B7A4B; --failed:#B4473B; --notshown:#B0832B; --mixed:#62669F; --none:#9AA5A2; --void:#C9CFCB;
+  --display:"Spectral",Georgia,serif; --body:"Public Sans",system-ui,-apple-system,sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121819; --panel:#1A2223; --ink:#E3EAE7; --muted:#9AA8A5; --rule:#2E3A3B; --accent:#6FB3B8; --base:#202A2B;
+  --held:#6DBA7F; --failed:#E07A6C; --notshown:#D9AE58; --mixed:#9EA2DA; --none:#6D7977; --void:#3A4546; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121819; --panel:#1A2223; --ink:#E3EAE7; --muted:#9AA8A5; --rule:#2E3A3B; --accent:#6FB3B8; --base:#202A2B;
+  --held:#6DBA7F; --failed:#E07A6C; --notshown:#D9AE58; --mixed:#9EA2DA; --none:#6D7977; --void:#3A4546; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
+main{max-width:1200px;margin:0 auto;display:grid;gap:28px}
+h1,h2{font-family:var(--display);font-weight:600;text-wrap:balance;margin:0}
+h1{font-size:2rem;line-height:1.15} h2{font-size:1.3rem}
+p{margin:0;max-width:68ch}
+.lede{color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.chip{display:inline-block;width:12px;height:12px;border-radius:3px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px}
+.tabs button{font:600 13px var(--mono);border:1px solid var(--rule);background:var(--panel);color:var(--ink);border-radius:6px;padding:6px 10px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.tabs button:focus-visible,.colhead:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.setupnote{font-size:14px;color:var(--muted);min-height:1.5em}
+.gridwrap{overflow-x:auto;border:1px solid var(--rule);border-radius:8px;background:var(--panel)}
+table{border-collapse:separate;border-spacing:0;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid var(--rule);padding:0}
+th.knob{position:sticky;left:0;z-index:2;background:var(--panel);text-align:left;font:500 13px var(--body);padding:6px 10px;white-space:nowrap;border-right:1px solid var(--rule);min-width:9.5rem}
+th.knob small{display:block;font:400 11px var(--mono);color:var(--muted)}
+thead th{position:sticky;top:0;z-index:1;background:var(--panel)}
+thead th.knob{z-index:3}
+.colhead{writing-mode:vertical-rl;transform:rotate(180deg);font:600 12px var(--mono);padding:8px 4px;cursor:pointer;background:none;border:0;color:var(--ink)}
+.colhead.void{color:var(--muted);text-decoration:line-through}
+.colhead.sel{color:var(--accent)}
+td.cell{width:28px;min-width:28px;height:26px;text-align:center;font:600 13px var(--mono);border-left:1px solid var(--rule)}
+td.on{background:var(--base);color:var(--accent)}
+td.voidcol{opacity:.45}
+td.verd{height:12px}
+tr.vrow th.knob{font-size:12px;color:var(--muted)}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.detail{background:var(--panel);border:1px solid var(--rule);border-radius:8px;padding:16px;display:grid;gap:10px}
+.detail dl{margin:0;display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 14px;font-size:14px}
+.detail dt{color:var(--muted);font:500 12px var(--mono);text-transform:uppercase;letter-spacing:.04em;padding-top:2px}
+.detail dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.knobs dl{margin:0;display:grid;gap:10px}
+.knobs dt{font-weight:600}
+.knobs dd{margin:0;color:var(--muted);font-size:14px;max-width:68ch}
+.knobs code,.detail code{font:12px var(--mono)}
+.badge{display:inline-block;font:600 11px var(--mono);padding:2px 7px;border-radius:4px;color:var(--bg);letter-spacing:.03em}
+.foot{font-size:13px;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){td.cell{transition:background .15s}}
+</style>
+
+<main>
+  <header style="display:grid;gap:10px">
+    <h1>Slope Lab Map</h1>
+    <p class="lede">Every experiment of the bare-slope lab (13–14 October 2026), on one grid. In each, two or more AI sellers set prices round after round in a simulated market, and the question is whether they drift above the fair price without being told to. Rows are the knobs; columns are the experiments by ID. A mark means that knob was turned away from its usual setting in that experiment. Tap a column for what it asked, what we predicted, and what happened.</p>
+    <div class="legend" id="legend"></div>
+  </header>
+
+  <section style="display:grid;gap:10px">
+    <div class="tabs" id="tabs" role="toolbar" aria-label="Set-ups"></div>
+    <p class="setupnote" id="setupnote"></p>
+    <div class="gridwrap"><table id="grid"></table></div>
+    <p class="foot">The top strip under each ID is the verdict on the prediction written before the run. Struck-through IDs are void runs, kept so the journey stays honest. Rows that never change inside the chosen set-up are hidden.</p>
+  </section>
+
+  <section class="two">
+    <div style="display:grid;gap:12px;align-content:start">
+      <h2>The experiment <a href="#grid" style="font:500 13px var(--body);color:var(--accent);margin-left:8px">back to the grid</a></h2>
+      <div class="detail" id="detail"></div>
+    </div>
+    <div class="knobs" style="display:grid;gap:12px;align-content:start">
+      <h2>The knobs</h2>
+      <dl id="knobs"></dl>
+    </div>
+  </section>
+  <p class="foot" id="sourceline"></p>
+</main>
+
+<script>
+const D = __DATA__;
+const VERD = {withdrawn:["Withdrawn","--void"],held:["Held","--held"],failed:["Failed","--failed"],notshown:["Not shown","--notshown"],mixed:["Mixed","--mixed"],none:["No prediction","--none"],baseline:["Baseline arm","--none"]};
+function vclass(v){v=(v||"").trim();const u=v.toUpperCase();
+  if(u.startsWith("WITHDRAWN"))return"withdrawn"; if(u.startsWith("HELD"))return"held"; if(u.startsWith("FAILED"))return"failed";
+  if(u.startsWith("NOT SHOWN")||u.startsWith("NOT ESTABLISHED"))return"notshown";
+  if(u.startsWith("NO PREDICTION"))return"none"; if(u.startsWith("BASELINE"))return"baseline"; return"mixed";}
+const isVoid=e=>/void/i.test(e.status||"");
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n);
+// usual value per knob = most common value among scored experiments
+const usual={};
+D.knobs.forEach(k=>{const c={};D.experiments.filter(e=>!isVoid(e)).forEach(e=>{const v=JSON.stringify(e.knobs[k.id]);c[v]=(c[v]||0)+1});
+  usual[k.id]=Object.entries(c).sort((a,b)=>b[1]-a[1])[0]?.[0];});
+const legend=document.getElementById("legend");
+Object.entries(VERD).filter(([k])=>k!=="baseline").forEach(([k,[l,t]])=>{legend.insertAdjacentHTML("beforeend",`<span><i class="chip" style="background:var(${t})"></i>${l}</span>`)});
+legend.insertAdjacentHTML("beforeend",`<span><b style="font:600 13px var(--mono);color:var(--accent)">×</b> knob turned</span>`);
+let current="ALL", selected=null;
+try{current=localStorage.getItem("slopemap.tab")||"ALL"}catch(e){}
+const tabs=document.getElementById("tabs");
+[{id:"ALL",name:"All set-ups"},...D.setups].forEach(s=>{const b=document.createElement("button");b.textContent=s.id==="ALL"?"All":s.id;b.title=s.name;b.id="tab-"+s.id;
+  b.onclick=()=>{current=s.id;try{localStorage.setItem("slopemap.tab",current)}catch(e){};render()};tabs.appendChild(b)});
+function esc(s){return String(s??"—").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]))}
+function render(){
+  tabs.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.id==="tab-"+current));
+  const exps=D.experiments.filter(e=>current==="ALL"||e.setup===current);
+  const s=D.setups.find(x=>x.id===current);
+  document.getElementById("setupnote").innerHTML=s?`<b>${esc(s.name)}.</b> ${esc(s.description)}`:`${D.experiments.length} experiments in ${D.setups.length} set-ups: `+D.setups.map(x=>`<b>${x.id}</b> ${esc(x.name)}`).join(" · ");
+  const rows=D.knobs.filter(k=>new Set(exps.map(e=>JSON.stringify(e.knobs[k.id]))).size>1||exps.some(e=>JSON.stringify(e.knobs[k.id])!==usual[k.id]));
+  let h=`<thead><tr><th class="knob">Knob <small>usual setting</small></th>`+exps.map(e=>`<th><button class="colhead ${isVoid(e)?"void":""} ${selected===e.id?"sel":""}" data-id="${e.id}" aria-label="${e.id}: ${esc(e.title)}">${e.id}</button></th>`).join("")+`</tr>`;
+  h+=`<tr class="vrow"><th class="knob">Verdict</th>`+exps.map(e=>{const v=VERD[vclass(e.verdict)];return`<td class="cell verd" title="${v[0]}" style="background:var(${isVoid(e)?"--void":v[1]})"></td>`}).join("")+`</tr></thead><tbody>`;
+  rows.forEach(k=>{const u=usual[k.id]?JSON.parse(usual[k.id]):null;
+    h+=`<tr><th class="knob">${esc(k.header)}<small>${esc(u)}</small></th>`+exps.map(e=>{const v=e.knobs[k.id];const on=JSON.stringify(v)!==usual[k.id];
+      return`<td class="cell ${on?"on":""} ${isVoid(e)?"voidcol":""}" title="${e.id} · ${esc(k.header)}: ${esc(v)}">${on?"×":""}</td>`}).join("")+`</tr>`});
+  document.getElementById("grid").innerHTML=h+`</tbody>`;
+  document.querySelectorAll(".colhead").forEach(b=>b.onclick=()=>{selected=b.dataset.id;render();showDetail();document.getElementById('detail').scrollIntoView({behavior:'smooth',block:'start'})});
+}
+function showDetail(){
+  const e=D.experiments.find(x=>x.id===selected)||D.experiments.find(x=>!isVoid(x));
+  const v=VERD[vclass(e.verdict)];
+  const turned=D.knobs.filter(k=>JSON.stringify(e.knobs[k.id])!==usual[k.id]).map(k=>`${esc(k.header)}: <code>${esc(e.knobs[k.id])}</code>`).join("<br>")||"none (the usual setting everywhere)";
+  document.getElementById("detail").innerHTML=`<div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><b style="font:600 18px var(--mono)">${e.id}</b><span>${esc(e.title)}</span><span class="badge" style="background:var(${isVoid(e)?"--void":v[1]})">${isVoid(e)?"Void":v[0]}</span></div>
+  <dl><dt>When</dt><dd>${esc(e.when)}</dd><dt>Question</dt><dd>${esc(e.question)}</dd><dt>Knobs turned</dt><dd>${turned}</dd>
+  <dt>Prediction</dt><dd>${esc(e.prediction)}</dd><dt>Verdict</dt><dd>${esc(e.verdict)}</dd><dt>Result</dt><dd>${esc(e.result)}</dd>
+  <dt>Runs</dt><dd>${esc(e.n_runs)}${e.cost?" · "+esc(e.cost):""}</dd><dt>Status</dt><dd>${esc(e.status)}</dd><dt>Lab book</dt><dd>${esc(e.design_md_section)}</dd></dl>`;
+}
+document.getElementById("knobs").innerHTML=D.knobs.map(k=>`<div><dt>${esc(k.header)}</dt><dd>${esc(k.description)}<br><code>${(k.values||[]).map(esc).join(" · ")}</code></dd></div>`).join("");
+document.getElementById("sourceline").textContent=`Built from the lab book (DESIGN.md) and the hands' reads; where a hands' read corrected the lab book, the hands' number is used. Prices are in units of the market (two sellers: fair 1.475, cartel 1.925). Null fields mean the files don't say.`;
+render(); showDetail();
+</script>

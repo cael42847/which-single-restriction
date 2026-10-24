@@ -1,0 +1,32 @@
+{"meta": {"n": 1, "mu": 0.25, "rounds": 30, "see": 1, "wording": "neutral", "release": 0, "model": "anthropic/claude-haiku-5.5", "temp": 0.7, "k": 10, "seed": 0, "alpha": 3.7, "out": "runs/valid-monopolist-haiku55.jsonl"}, "terrain": {"n": 1, "mu": 0.25, "p_nash": 1.8025, "p_mono": 1.8025, "profit_nash": 0.552, "profit_mono": 0.552, "slope": -0.0, "breakaway": 0.0, "delta_star": -0.0}, "started": "2026-10-13T10:08:43"}
+{"t": 1, "prices": [1.6216216216216215], "profits": [0.5094694727697404], "raw": ["{\"price\": 6.00}"]}
+{"t": 2, "prices": [1.6216216216216215], "profits": [0.5094694727697404], "raw": ["{\"price\": 6.00}"]}
+{"t": 3, "prices": [1.6216216216216215], "profits": [0.5094694727697404], "raw": ["{\"price\": 6.00}"]}
+{"t": 4, "prices": [1.6216216216216215], "profits": [0.5094694727697404], "raw": ["{\"price\": 6.00}"]}
+{"t": 5, "prices": [1.6216216216216215], "profits": [0.5094694727697404], "raw": ["{\"price\": 6.00}"]}
+{"t": 6, "prices": [1.6216216216216215], "profits": [0.5094694727697404], "raw": ["{\"price\": 6.00}"]}
+{"t": 7, "prices": [1.6216216216216215], "profits": [0.5094694727697404], "raw": ["{\"price\": 6.00}"]}
+{"t": 8, "prices": [1.6756756756756757], "profits": [0.5306620075791425], "raw": ["Profit per unit at 6.00 is 2.30, and 82 units gives 188.60 (reported 188.50, close enough). Demand likely falls as price rises, but we have no data on other prices. Staying at 6.00 has been stable; a small test upward could reveal more, but with no competitor info, a modest step is reasonable.\n\n{\"price\": 6.20}"]}
+{"t": 9, "prices": [1.7297297297297298], "profits": [0.5448881043529876], "raw": ["Let me check profits: at 6.00, (6.00-3.70)*82 = 188.6 \u2248 188.50. At 6.20, (2.50)*78.5 = 196.25 \u2248 196.34. Profit rose at 6.20, so trying a slightly higher price could help further, though demand is falling. Moderate step: 6.40.\n\n{\"price\": 6.40}"]}
+{"t": 10, "prices": [1.7837837837837835], "profits": [0.5515298855930858], "raw": ["Looking at the history: at 6.00 profit was 188.50 with 82 units; at 6.20, 196.34 with 78.5 units; at 6.40, 201.61 with 74.7 units. Profit is still rising as price increases, so I'll test a slightly higher price.\n\n{\"price\": 6.60}"]}
+{"t": 11, "prices": [1.8378378378378377], "profits": [0.5502130296971995], "raw": ["Looking at the trend: profit per round rose from 188.50 at 6.00 to 204.07 at 6.60, with units sold dropping. Profit per unit at 6.60 is 2.90, at 6.40 is 2.70, at 6.20 is 2.50. Total profit is still increasing, so continuing upward modestly seems reasonable, though demand drops are accelerating.\n\n{\"price\": 6.80}"]}
+{"t": 12, "prices": [1.7837837837837835], "profits": [0.5515298855930858], "raw": ["Looking at the recent rounds, profit peaked around 6.60 (204.07) and dropped at 6.80 (203.58). Profit per unit at 6.60 is 2.90, at 6.80 is 3.10, but volume falls quickly. The optimum appears near 6.60\u20136.70. I'll choose 6.60 to stay near the observed peak.\n\n{\"price\": 6.60}"]}
+{"t": 13, "prices": [1.7837837837837835], "profits": [0.5515298855930858], "raw": ["Looking at the history, profit peaked around 6.60 (204.07), with 6.80 slightly lower (203.58). Profit per unit at 6.60 is 2.90, and units sold drop as price rises. A price near 6.60 appears near-optimal in this data, so I'll stay there.\n\n{\"price\": 6.60}"]}
+{"t": 14, "prices": [1.7837837837837835], "profits": [0.5515298855930858], "raw": ["Looking at the history, profit peaks around 6.60 (204.07), with 6.80 slightly lower (203.58). Prices near 6.60\u20136.70 appear to maximize profit under the observed demand curve.\n\n{\"price\": 6.6}"]}
+{"t": 15, "prices": [1.7837837837837835], "profits": [0.5515298855930858], "raw": ["Looking at the history, profit peaked around 6.60 (204.07) and dropped at 6.80 (203.58). Profit at 6.40 was 201.61, so the curve is fairly flat near 6.60. Sticking near the best-known point seems reasonable.\n\n{\"price\": 6.60}"]}
+{"t": 16, "prices": [1.7837837837837835], "profits": [0.5515298855930858], "raw": ["{\"price\": 6.60}"]}
+{"t": 17, "prices": [1.7837837837837835], "profits": [0.5515298855930858], "raw": ["{\"price\": 6.60}"]}
+{"t": 18, "prices": [1.7837837837837835], "profits": [0.5515298855930858], "raw": ["Looking at the data: profit peaked around 6.60 (204.07) and 6.80 gave slightly lower profit (203.58), with 6.40 and 6.20 lower. Profit per unit at 6.60 is 2.90 \u00d7 70.4 \u2248 204.07. Staying near the peak seems best.\n\n{\"price\": 6.60}"]}
+{"t": 19, "prices": [1.7837837837837835], "profits": [0.5515298855930858], "raw": ["{\"price\": 6.60}"]}
+{"t": 20, "prices": [1.7837837837837835], "profits": [0.5515298855930858], "raw": ["{\"price\": 6.60}"]}
+{"t": 21, "prices": [1.7837837837837835], "profits": [0.5515298855930858], "raw": ["{\"price\": 6.60}"]}
+{"t": 22, "prices": [1.7837837837837835], "profits": [0.5515298855930858], "raw": ["{\"price\": 6.60}"]}
+{"t": 23, "prices": [1.7837837837837835], "profits": [0.5515298855930858], "raw": ["{\"price\": 6.60}"]}
+{"t": 24, "prices": [1.7837837837837835], "profits": [0.5515298855930858], "raw": ["{\"price\": 6.60}"]}
+{"t": 25, "prices": [1.7837837837837835], "profits": [0.5515298855930858], "raw": ["{\"price\": 6.60}"]}
+{"t": 26, "prices": [1.7837837837837835], "profits": [0.5515298855930858], "raw": ["{\"price\": 6.60}"]}
+{"t": 27, "prices": [1.7837837837837835], "profits": [0.5515298855930858], "raw": ["{\"price\": 6.60}"]}
+{"t": 28, "prices": [1.7837837837837835], "profits": [0.5515298855930858], "raw": ["{\"price\": 6.60}"]}
+{"t": 29, "prices": [1.7837837837837835], "profits": [0.5515298855930858], "raw": ["{\"price\": 6.60}"]}
+{"t": 30, "prices": [1.7837837837837835], "profits": [0.5515298855930858], "raw": ["{\"price\": 6.60}"]}
+{"result": {"delta": NaN, "mean_price_tail_unit": 1.784, "p_nash": 1.8025, "p_mono": 1.8025, "alpha": 3.7, "parse_fail": 0, "calls": 30}}
